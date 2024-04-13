@@ -1,21 +1,22 @@
 import { createConfig } from "@ponder/core";
 import { http } from "viem";
 
-import { ExampleContractAbi } from "./abis/ExampleContractAbi";
+import { wOneAbi } from "./abis/wOneAbi";
 
 export default createConfig({
   networks: {
-    mainnet: {
-      chainId: 1,
-      transport: http(process.env.PONDER_RPC_URL_1),
+    harmony: {
+      chainId: 1666600000,
+      transport: http(process.env.PONDER_RPC_URL_1666600000),
     },
   },
   contracts: {
-    ExampleContract: {
-      network: "mainnet",
-      abi: ExampleContractAbi,
-      address: "0x0",
-      startBlock: 1234567,
+    WrappedOne: {
+      network: "harmony",
+      abi: wOneAbi,
+      address: "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      // 2024-04-12
+      startBlock: 56100000,
     },
   },
 });
